@@ -1,0 +1,98 @@
+@charset "UTF-8";
+
+body{
+	width: 1200px;
+	margin: 0px auto;
+}
+header{
+	width: 1200px;
+}
+header div{
+	text-align: right;
+	font-family: '나눔고딕';
+	font-size: 15px;
+}
+header h1{
+	font-family: '나눔스퀘어 Extrabold';
+	font-size: 65px;
+	font-weight: bold;
+	text-align: center;
+	vertical-align: bottom;
+	height: 200%;
+	text-align: center;
+	color: #003F63;
+}
+header nav{
+	border: 0px;
+}
+header nav li{
+	font-family: '나눔스퀘어';
+	font-size: 20px;
+	display: inline;
+	margin-left: 15%;
+}
+section{
+	width: 1200px;
+	height: auto;
+}
+section h2{
+	font-family: '나눔스퀘어 Extrabold';
+	font-size: 30px;
+	background-color: #F2B138;
+	color: #003F63;
+}
+section ul li{
+	vertical-align: top;
+	list-style-type: none;
+}
+#adImg{
+	width: 750px;
+	height: auto;
+	float: left;
+	margin-left: 50px;
+	margin-top: 30px;
+	margin-bottom: 15px;
+}
+#subMenu{
+	width: 250px;
+	float: left;
+	font-family: '나눔스퀘어';
+	font-size: 18px;
+	text-align: left;
+	margin: 5px auto;
+}
+footer{
+	clear: both;
+	width: 1200px;
+}
+footer div{
+	font-family: '나눔고딕';
+	font-size: 15px;
+	text-align: center;
+}
+
+/*a tag*/
+a.linkStyle:link{
+	color: #003F63;
+	text-decoration: none;
+}
+a.linkStyle:visited{
+	color: #003F63;
+	text-decoration: none;
+}
+a.linkStyle:hover{
+	color: #88898C;
+	text-decoration: none;
+}
+a.hyper:link {
+	color: #003F63;
+	text-decoration: none;
+}
+a.hyper:visited {
+	color: #003F63;
+	text-decoration: none;
+}
+a.hyper:hover {
+	color: #88898C;
+	text-decoration: none;
+}
