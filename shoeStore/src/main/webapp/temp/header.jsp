@@ -29,7 +29,7 @@ String sname=(String)session.getAttribute("sname");
 		<div><%=sname %>님 로그인중...|<a href="/shoeStore/member/logout_ok.jsp">로그아웃</a></div>
 		<%
 	}%>
-	<a href="/shoeStore/index.jsp"><h1>shoe itsue</h1></a>
+	<a href="/shoeStore/index.jsp"><h1>shoe issue</h1></a>
 	<nav> 
 		<form name="" action="">
 		<ul>
@@ -38,7 +38,7 @@ String sname=(String)session.getAttribute("sname");
 				<input type="submit" value="검색">
 			</li>
 			<li>
-				<a href="" class="linkStyle">질문게시판</a>
+				<a href="/shoeStore/bbs/bbsList.jsp" class="linkStyle">질문게시판</a>
 			</li>
 			<li>
 				<a href="/shoeStore/member/myPage.jsp" class="linkStyle">마이페이지</a>

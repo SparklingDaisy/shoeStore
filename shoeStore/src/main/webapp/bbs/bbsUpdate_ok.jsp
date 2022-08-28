@@ -1,0 +1,31 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="com.oreilly.servlet.*"%>
+<%@ page import="java.io.*" %>
+<jsp:useBean id="bdao" class="com.shoe.bbs.Shoe_bbsDAO" scope="session"></jsp:useBean>
+<%
+String path=request.getRealPath("/bbs/img");
+MultipartRequest mr=
+	new MultipartRequest(request,path,1024*1024*10,"utf-8");
+int bidx=Integer.parseInt(mr.getParameter("bidx"));
+String bid=mr.getParameter("bid");
+String bsubject=mr.getParameter("bsubject");
+String bcontent=mr.getParameter("bcontent");
+String bimg=mr.getFilesystemName("upload");
+if(mr.getParameter("bcontent").equals("")){
+	String msg="내용을 입력해주세요!";
+	%>
+	<script>
+	window.alert('<%=msg%>')
+	window.history.back()
+	</script>
+	<%
+	return;
+}
+int result=bdao.bbsUpdate(bidx, bsubject, bcontent, bimg, path);
+String msg=result>0?"수정 성공!":"수정 실패!";
+%>
+<script>
+window.alert('<%=msg%>')
+window.location.href="bbsList.jsp"
+</script>

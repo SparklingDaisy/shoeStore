@@ -1,0 +1,294 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: 'SUIT-Medium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Medium.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'HallymGothic-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2204@1.0/HallymGothic-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
+.back_top{
+	background:black;
+}
+
+.nav{
+	color:white;
+	height:180px;
+	display:flex;
+	justify-content:space-between;
+	align-items:center;
+	max-width:1100px;
+	margin:auto;
+}
+
+.nav .logo h1{
+	font-family:'SUIT-Medium';
+	font-size:40px;
+	text-decoration:none;
+	color:white;
+}
+
+.nav .logo a{
+	text-decoration:none;
+	color:white;
+}
+
+.login{
+	text-align:right;
+	max-width:1100px;
+	margin:auto;
+	color:white;
+}
+
+.login a{
+	font-family: 'SUIT-Medium';
+	font-size:12px;
+	text-decoration:none;
+	padding-left:5px;
+	padding-right:5px;
+	color:white;
+}
+
+.nav .nav_menu a{
+	font-size:20px;
+	font-family: 'SUIT-Medium';
+	text-decoration:none;
+	padding-left:20px;
+	padding-right:20px;
+	color:white;
+}
+
+.main{
+	background: url(../img/main.png);
+	background-position:center;
+	background-size:cover; /* 배경크기 꽉참 */
+	height:700px;
+	width:1100px;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	margin:auto;
+}
+
+.main .title{
+	text-align:center; /* 요소 중앙 배열 */
+}
+
+.main .title h1{
+	font-size:50px;
+	color:black;
+	letter-spacing:0.2em;
+	margin-bottom:0;
+}
+
+.main .title button{
+	background:black;
+	border:2px solid white;
+	border-radius:5px;
+	padding:10px 30px;
+	font-size:14px;
+	transition:.5s ease;
+}
+
+.main .title a{
+	text-decoration:none;
+	color:white;
+}
+
+.main .title button:hover{
+	transition: .5s ease;
+	border:2px solid black;
+	background:transparent;
+	color:black;
+}
+
+.main2{
+	background:#F5F5F5;
+	max-width:1100px;
+	margin:auto;
+	background: url(../img/main2.png);
+	background-position:center;
+	background-size:cover; /* 배경크기 꽉참 */
+	height:700px;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	margin:auto;
+}
+
+/*--------------------------footer---------------------------------------------*/
+footer{
+	color:white;
+	background:black;
+	padding-top:50px;
+	padding-bottom:50px;
+
+}
+
+footer .container{
+	padding-bottom:10px;
+	display:flex;
+	align-items:center;
+	max-width:1100px;
+	margin:auto;
+}
+
+footer .container .left{
+	flex:1
+}
+
+footer .container .left img{
+	width:150px;
+	height:150px;
+}
+
+footer .container .left h1{
+	margin:0;
+}
+
+footer .container .left p{
+	margin:0;
+	font-size:15px;
+}
+
+footer .container .left .sns{
+	margin-top:30px;
+}
+
+footer .container .left .sns i{
+	font-size:24px;
+	margin-right:20px;
+}
+
+footer .container .right{
+	flex:3;
+	padding-left:50px;	
+	display:flex;
+	align-items:center;
+	justify-content:center;
+}
+
+footer .container .right .list{
+	flex:1;
+	margin-left:20px;	
+}
+
+footer .container .right .list h2{
+	padding-left:5px;
+	padding-right:5px;
+	margin:0;
+	padding-bottom:10px;
+	border-bottom:1px solid white;
+}
+
+footer .container .right .list ul{
+	list-style:none;
+	padding:0;	
+}
+
+footer .container .right .list ul li{
+	padding:5px 5px;
+}
+
+footer .container .right .list a{
+	text-decoration:none;
+	color:white;
+}
+
+footer .container .right .list ul li:hover{
+	background:#222;	
+}
+
+
+footer .copy_right{
+	text-align:center;
+	align-items:center;
+	max-width:1100px;
+	margin:auto;
+}
+
+/*--------------------------issue---------------------------------------------*/
+.issue_info{
+	max-width:1100px;
+	height:700px;
+	width:1100px;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	margin:auto;
+
+	
+}
+
+.issue{
+	background: url(../img/Beige.png);
+}
+
+.issue .container{
+	display:flex;
+	justify-content:space-between;
+}
+
+.issue .container .center{
+	opacity: 0.9;
+	width:1200px;
+	text-align:center;
+}
+
+.issue .container .center h1{
+	font-size:40px;
+}
+
+.issue .container .center img{
+	flex:1;
+	float:right;
+}
+
+.issue .container .center .text{
+	height:700;
+	background:#FFEBCD;
+	flex:1;
+	width:1200px;
+	text-align:center;
+}
+
+
+.issue .container .right{
+	flex:1;
+}
+
+.issue .container .center2 .text{
+
+	background:#FFEBCD;
+	float: right;
+	text-align:center;
+	width:600px;
+	height:750px;
+	opacity: 0.8;
+}
+
+.issue .container .center2{
+
+	width:1200px;
+}
+
+.issue .container .center2 h1{
+	font-size:40px;
+}
+
+.issue .container .center2 img{
+	flex:1;
+	float: left;
+
+}
+
+
+
+

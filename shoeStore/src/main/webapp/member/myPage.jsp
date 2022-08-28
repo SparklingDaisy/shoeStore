@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="com.shoe.member.*" %>
-<jsp:useBean id="mdao" class="com.shoe.member.shoe_memberDAO"></jsp:useBean>
+<jsp:useBean id="mdao" class="com.shoe.member.Shoe_memberDAO"></jsp:useBean>
     
 <%
 	String sid=(String)session.getAttribute("sid"); //세션은 오브젝트 이므로 다운캐스팅 필수
@@ -22,8 +22,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="/shoeStore/css/mainLayout.css">
-<link rel="stylesheet" type="text/css" href="/shoeStore/css/myPageLayout.css">
+<link rel="stylesheet" type="text/css" href="../css/main.css">
 
 <script>
 
@@ -41,24 +40,23 @@
 </script>
 </head>
 <body>
-<%@include file="/header.jsp" %>
-<%@include file="/category.jsp" %>
-
 	<%
-	shoe_memberDTO dto=mdao.myInfo(sid);
+	Shoe_memberDTO dto=mdao.myInfo(sid);
 	%>
+	<%@include file="/header.jsp" %>
 	
-	<ul>
-		<li><%=dto.getMname() %>님 환영합니다!<img src="../img/<%=dto.getMtier() %>.png" ></li>
-		<li>주문내역 조회</li>
-		<li>찜한 상품(개발예정)</li>
-		<li>나의 등급(개발예정))</li>
-		<li>나의 상품문의</li>
-		<li><a href="memberInfo.jsp">회원정보변경</a></li>
-		<li><a href="javascript:deleteAccount();">회원탈퇴</a></li>
-	</ul>
-	<hr>
-		<a href="">잔액충전</a>
-<%@include file="/footer.jsp" %>
+	<img src="../img/myPage.png">
+
+		<ul>
+			<li><%=dto.getMname() %>님 환영합니다!<img src="../img/<%=dto.getMtier() %>.png" class="tier" ></li>
+			<li><a href="#">주문내역 조회</a></li>
+			<li><a href="#">찜한 상품(개발예정)</a></li>
+			<li><a href="#">나의 등급(개발예정)</a></li>
+			<li><a href="myWrite.jsp">나의 질문</a></li>
+			<li><a href="memberInfo.jsp">회원정보변경</a></li>
+			<li><a href="javascript:deleteAccount();">회원탈퇴</a></li>
+		</ul>
+
 </body>
+<%@include file="/footer.jsp" %>
 </html>

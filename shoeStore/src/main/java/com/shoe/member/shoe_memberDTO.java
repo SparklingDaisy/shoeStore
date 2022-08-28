@@ -1,7 +1,7 @@
 package com.shoe.member;
 import java.sql.*;
 
-public class shoe_memberDTO {
+public class Shoe_memberDTO {
 
 	private int idx;
 	private String mid;
@@ -18,11 +18,11 @@ public class shoe_memberDTO {
 	private int mnu;
 	private Date mjoindate;
 	
-	public shoe_memberDTO() {
+	public Shoe_memberDTO() {
 		super();
 	}
 
-	public shoe_memberDTO(int idx, String mid, String mpwd, String mname, String mbirthdate, String mgender,
+	public Shoe_memberDTO(int idx, String mid, String mpwd, String mname, String mbirthdate, String mgender,
 			String mtel, String memail, String mad, String maddr, String mtier, int msum, int mnu,Date mjoindate) {
 		
 		super();

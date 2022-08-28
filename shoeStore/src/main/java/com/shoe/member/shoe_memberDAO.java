@@ -2,8 +2,9 @@ package com.shoe.member;
 
 import java.sql.*;
 import java.util.*;
+import com.shoe.bbs.*;
 
-public class shoe_memberDAO {
+public class Shoe_memberDAO {
 	
 	private Connection conn;
 	private PreparedStatement ps;
@@ -14,12 +15,12 @@ public class shoe_memberDAO {
 	public static final int LOGIN_OK=3;
 	public static final int ERROR=-1;
 	
-	public shoe_memberDAO() {
+	public Shoe_memberDAO() {
 		
 	}
 	
 	/**회원가입 메서드*/
-	public int memberJoin(shoe_memberDTO dto) {
+	public int memberJoin(Shoe_memberDTO dto) {
 		try {
 			conn=com.shoe.db.ShoeDB.getConn();
 			String sql="insert into shoe_member values(shoe_member_idx.nextval,?,?,?,?,?,?,?,?,?,'bronze',0,0,sysdate)";
@@ -141,7 +142,7 @@ public class shoe_memberDAO {
 	}
 	
 	/**회원정보검색 메서드*/
-	public shoe_memberDTO myInfo(String sid){
+	public Shoe_memberDTO myInfo(String sid){
 		
 		try {
 			conn=com.shoe.db.ShoeDB.getConn();
@@ -150,7 +151,7 @@ public class shoe_memberDAO {
 			ps.setString(1, sid);
 			rs=ps.executeQuery();
 			
-			shoe_memberDTO dto=null;
+			Shoe_memberDTO dto=null;
 			while(rs.next()) {
 				int idx=rs.getInt("idx");
 				String mid=rs.getString("mid");
@@ -167,7 +168,7 @@ public class shoe_memberDAO {
 				int mnu=rs.getInt("mnu");
 				java.sql.Date mjoindate=rs.getDate("mjoindate");
 				
-				dto=new shoe_memberDTO(idx, mid, mpwd, mname, mbirthdate, mgender, mtel, memail, mad, maddr, mtier, msum, mnu, mjoindate);
+				dto=new Shoe_memberDTO(idx, mid, mpwd, mname, mbirthdate, mgender, mtel, memail, mad, maddr, mtier, msum, mnu, mjoindate);
 			}
 			return dto;	
 			
@@ -184,7 +185,7 @@ public class shoe_memberDAO {
 	}
 	
 	/**회원정보수정 메서드*/
-	public int memberUpdate(shoe_memberDTO dto) {
+	public int memberUpdate(Shoe_memberDTO dto) {
 		
 		try {
 			conn=com.shoe.db.ShoeDB.getConn();
@@ -239,6 +240,63 @@ public class shoe_memberDAO {
 				}
 			}
 		}
+	
+	/**나의 질문 관련 메서드**/
+	public ArrayList<Shoe_bbsDTO> myWriteList(int ls,int cp){
+		
+		try {
+			conn=com.shoe.db.ShoeDB.getConn();
+			//String sql="select * from jsp_bbs order by idx desc";
+			
+			int start=(cp-1)*ls+1;
+			int end=cp*ls;
+			
+			String sql="select * from "
+					+ "(select rownum as rnum,a.* from "
+					+ "(select * from jsp_bbs order by ref desc, sunbun asc)a)b "
+					+ "where rnum>=? and rnum<=?";		//커리에는 연산식을 넣지 않는 전제를 가진다.
+			
+			ps=conn.prepareStatement(sql);
+			ps.setInt(1, start);
+			ps.setInt(2, end);
+			rs=ps.executeQuery();
+			
+			ArrayList<Shoe_bbsDTO> arr=new ArrayList<Shoe_bbsDTO>();
+			while(rs.next()) {
+				
+				int idx=rs.getInt("idx");
+				String writer=rs.getString("writer");
+				String pwd=rs.getString("pwd");
+				String subject=rs.getString("subject");
+				String content=rs.getString("content");
+				java.sql.Date writedate=rs.getDate("writedate");
+				int readnum=rs.getInt("readnum");
+				int ref=rs.getInt("ref");
+				int lev=rs.getInt("lev");
+				int sunbun=rs.getInt("sunbun");
+				Shoe_bbsDTO dto=new Shoe_bbsDTO(idx, pwd, subject, content, writedate, content, readnum, ref, lev, sunbun);
+						
+				arr.add(dto);
+			}
+			
+			return arr;
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+			return null;
+			
+		}finally {
+			
+			try {
+				if(rs!=null)rs.close();
+				if(ps!=null)ps.close();
+				if(conn!=null)conn.close();
+			}catch(Exception e2) {
+				
+			}
+		}
+		
+	}
 	
 
 }

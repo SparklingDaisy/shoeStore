@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
 <%@ page import="com.shoe.member.*" %>
-<jsp:useBean id="mdao" class="com.shoe.member.shoe_memberDAO"></jsp:useBean>
+<jsp:useBean id="mdao" class="com.shoe.member.Shoe_memberDAO"></jsp:useBean>
 
 <%
 	String sid=(String)session.getAttribute("sid"); //세션은 오브젝트 이므로 다운캐스팅 필수
@@ -62,9 +62,8 @@
  <body>
  
  	<%
-	ArrayList<shoe_memberDTO> arr=mdao.myInfo(sid);
-		for(int i=0;i<arr.size();i++){
-	%>
+  	Shoe_memberDTO dto=mdao.myInfo(sid);
+  	%>
  <table class="firTable">
 	<tr>
 	<td align="center"><h2>내 정보</h2></td>
@@ -74,7 +73,7 @@
   <table>
 	<tr>
 		<td class="table">아이디</td>
-		<td class="td"><input type="text" name="mid" value="<%=arr.get(i).getMid() %>" readonly>
+		<td class="td"><input type="text" name="mid" value="<%=dto.getMid() %>" readonly>
 	</tr>
 	<tr>
 		<td class="table">비밀번호변경</td>
@@ -86,27 +85,26 @@
 	</tr>
 	<tr>
 		<td class="table">이름</td>
-		<td><input type="text" name="mname" value="<%=arr.get(i).getMname()%>" readonly><br>
+		<td><input type="text" name="mname" value="<%=dto.getMname()%>" readonly><br>
 	</tr>
 	<tr>
 		<td class="table">생년월일</td>
-		<td><input type="text" name="mbirthdate" value="<%=arr.get(i).getMbirthdate()%>"><br>
+		<td><input type="text" name="mbirthdate" value="<%=dto.getMbirthdate()%>"><br>
 	</tr>
 	<tr>
 		<td class="table">전화번호</td>
-		<td><input type="text" name="mtel" value="<%=arr.get(i).getMtel()%>"></td>
+		<td><input type="text" name="mtel" value="<%=dto.getMtel()%>"></td>
 	</tr>
 	<tr>
 		<td class="table">주소</td>
-		<td><input type="text" name="maddr" value="<%=arr.get(i).getMaddr()%>"></td>
+		<td><input type="text" name="maddr" value="<%=dto.getMaddr()%>"></td>
 	</tr>
 	<tr>
 		<td class="table">이메일 주소</td>
-		<td><input type="text" name="memail" value="<%=arr.get(i).getMemail()%>"></td>
+		<td><input type="text" name="memail" value="<%=dto.getMemail()%>"></td>
 	</tr>
   </table>
   <br>
-  <%} %>
   <div>
 	  <input type="submit" value="내정보변경">
 	  <a href="/shoeStore.jsp"><input type="button" value="취소"></a>

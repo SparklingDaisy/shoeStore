@@ -2,11 +2,5 @@
     pageEncoding="UTF-8"%>
 <%
 session.invalidate();
-%>
-<script>
-window.alert('로그아웃 되었습니다.');
-</script>
-
-<%
 response.sendRedirect("/shoeStore"); //location.href='';
 %>

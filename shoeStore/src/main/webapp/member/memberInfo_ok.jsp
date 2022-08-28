@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-<jsp:useBean id="mdto" class="com.shoe.member.shoe_memberDTO"></jsp:useBean>
+<jsp:useBean id="mdto" class="com.shoe.member.Shoe_memberDTO"></jsp:useBean>
 <jsp:setProperty property="*" name="mdto"/>
-<jsp:useBean id="mdao" class="com.shoe.member.shoe_memberDAO"></jsp:useBean>
+<jsp:useBean id="mdao" class="com.shoe.member.Shoe_memberDAO"></jsp:useBean>
     
 <%
 String mpwd=request.getParameter("mpwd");
