@@ -6,22 +6,12 @@
 	height:70px;
 }
 
-.bbs_top{
-	background: url(../img/QnA1.png);
-	background-position:center;
-	text-align: center;
-	margin:auto;
-	max-width:800px;
-	height:250px;
-}
-
 table {
 	
     border-spacing: 0px;
     text-align: center;
     font-family: 'Cairo', sans-serif;
 	margin:auto;
-
   	max-height:1100px;
 }
 

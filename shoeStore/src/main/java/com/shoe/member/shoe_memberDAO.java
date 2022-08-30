@@ -274,7 +274,7 @@ public class Shoe_memberDAO {
 				int ref=rs.getInt("ref");
 				int lev=rs.getInt("lev");
 				int sunbun=rs.getInt("sunbun");
-				Shoe_bbsDTO dto=new Shoe_bbsDTO(idx, pwd, subject, content, writedate, content, readnum, ref, lev, sunbun);
+				Shoe_bbsDTO dto=new Shoe_bbsDTO(idx, pwd, subject, content, writedate, subject, readnum, ref, lev, sunbun, content);
 						
 				arr.add(dto);
 			}

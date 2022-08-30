@@ -2,6 +2,7 @@ package com.shoe.bbs;
 
 import java.sql.*;
 import java.util.*;
+import com.oreilly.servlet.*;
 import java.io.*;
 
 public class Shoe_bbsDAO {
@@ -13,7 +14,7 @@ public class Shoe_bbsDAO {
 	public Shoe_bbsDAO() {
 		// TODO Auto-generated constructor stub
 	}
-	/**ref추출 관련 메서드*/
+	/**max(bref)추출 관련 메서드*/
 	public int getMaxRef() {
 		try {
 			String sql="select max(bref) from shoe_bbs";
@@ -39,13 +40,14 @@ public class Shoe_bbsDAO {
 		try {
 			conn=com.shoe.db.ShoeDB.getConn();
 			int bref=getMaxRef();
-			String sql="insert into shoe_bbs values(shoe_bbs_idx.nextval,?,?,?,sysdate,?,0,?,0,0)";
+			String sql="insert into shoe_bbs values(shoe_bbs_idx.nextval,?,?,?,sysdate,?,0,?,0,0,?)";
 			ps=conn.prepareStatement(sql);
 			ps.setString(1, bid);
 			ps.setString(2, bsubject);
 			ps.setString(3, bcontent);
 			ps.setString(4, bimg);
 			ps.setInt(5, bref+1);
+			ps.setString(6, bid);
 			int count=ps.executeUpdate();
 			return count;
 		}catch(Exception e) {
@@ -75,11 +77,11 @@ public class Shoe_bbsDAO {
 		}
 	}
 	/**답변쓰기 관련 메서드*/
-	public int bbsReWrite(int bref, int blev, int bsunbun, String bid, String bsubject, String bcontent, String bimg) {
+	public int bbsReWrite(int bref, int blev, int bsunbun, String bid, String bsubject, String bcontent, String bimg, String bb) {
 		try {
 			conn=com.shoe.db.ShoeDB.getConn();
 			updateSun(bref, bsunbun+1);
-			String sql="insert into shoe_bbs values(shoe_bbs_idx.nextval,?,?,?,sysdate,?,0,?,?,?)";
+			String sql="insert into shoe_bbs values(shoe_bbs_idx.nextval,?,?,?,sysdate,?,0,?,?,?,?)";
 			ps=conn.prepareStatement(sql);
 			ps.setString(1, bid);
 			ps.setString(2, bsubject);
@@ -88,6 +90,7 @@ public class Shoe_bbsDAO {
 			ps.setInt(5, bref);
 			ps.setInt(6, blev+1);
 			ps.setInt(7, bsunbun+1);
+			ps.setString(8, bb);
 			int count=ps.executeUpdate();
 			return count;
 		}catch(Exception e) {
@@ -122,18 +125,29 @@ public class Shoe_bbsDAO {
 		}
 	}
 	/**글 목록 관련 메서드*/
-	public ArrayList<Shoe_bbsDTO> bbsList(int ls,int cp){
+	public ArrayList<Shoe_bbsDTO> bbsList(int ls,int cp, String bb){
 		try {
 			conn=com.shoe.db.ShoeDB.getConn();
 			int start=(cp-1)*ls+1;
 			int end=cp*ls;
-			String sql="select * from "
+			if(bb!="") {
+				String sql="select * from "
+						+ "(select rownum as r,a.* from "
+						+ "(select * from shoe_bbs where bb=? order by bref desc,bsunbun asc)a)b "
+						+ "where r>=? and r<=?";
+				ps=conn.prepareStatement(sql);
+				ps.setString(1, bb);
+				ps.setInt(2, start);
+				ps.setInt(3, end);
+			}else {
+				String sql="select * from "
 					+ "(select rownum as r,a.* from "
 					+ "(select * from shoe_bbs order by bref desc,bsunbun asc)a)b "
 					+ "where r>=? and r<=?";
-			ps=conn.prepareStatement(sql);
-			ps.setInt(1, start);
-			ps.setInt(2, end);
+				ps=conn.prepareStatement(sql);
+				ps.setInt(1, start);
+				ps.setInt(2, end);
+			}
 			rs=ps.executeQuery();
 			ArrayList<Shoe_bbsDTO> arr=new ArrayList<Shoe_bbsDTO>();
 			while(rs.next()) {
@@ -147,7 +161,8 @@ public class Shoe_bbsDAO {
 				int bref=rs.getInt("bref");
 				int blev=rs.getInt("blev");
 				int bsunbun=rs.getInt("bsunbun");
-				Shoe_bbsDTO dto=new Shoe_bbsDTO(bidx, bid, bsubject, bcontent, bwritedate, bimg, breadnum, bref, blev, bsunbun);
+				bb=rs.getString("bb");
+				Shoe_bbsDTO dto=new Shoe_bbsDTO(bidx, bid, bsubject, bcontent, bwritedate, bimg, breadnum, bref, blev, bsunbun, bb);
 				arr.add(dto);
 			}
 			return arr;
@@ -181,7 +196,8 @@ public class Shoe_bbsDAO {
 				int bref=rs.getInt("bref");
 				int blev=rs.getInt("blev");
 				int bsunbun=rs.getInt("bsunbun");
-				dto=new Shoe_bbsDTO(bidx, bid, bsubject, bcontent, bwritedate, bimg, breadnum, bref, blev, bsunbun);
+				String bb=rs.getString("bb");
+				dto=new Shoe_bbsDTO(bidx, bid, bsubject, bcontent, bwritedate, bimg, breadnum, bref, blev, bsunbun, bb);
 			}
 			return dto;
 		}catch(Exception e) {

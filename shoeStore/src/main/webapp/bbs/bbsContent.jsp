@@ -24,7 +24,7 @@ if(dto==null){
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="/shoeStore/css/mainLayout.css">
+<link rel="stylesheet" type="text/css" href="/shoeStore/css/main.css">
 <style>
 h2{
 	text-align: center;

@@ -1,0 +1,106 @@
+@charset "UTF-8";
+.my_all{
+	height:1000px;
+	max-height:1000px;
+	border-radius: 10px;
+}
+
+.my_top{
+	height:70px;
+}
+
+.my_container{
+	display: flex;
+	height:1000px;
+	flex-direction: row;
+	max-width:1100px;
+	height:700px;
+	margin:auto;
+}
+
+.my_container my_menu{
+	flex:1;
+}
+
+.my_container .my_main{
+	text-align:center;
+	flex:1;
+}	
+
+.my_container my_right{
+	flex:1;
+}	
+
+
+.my_bot{
+	height:70px;
+}
+
+/*menu------------------------------------------------------------------*/
+.my_menu ::before{
+    font-family: 'Material Icons';
+    font-size: 1.5em;
+    float: left;
+    clear: left;
+}
+
+.my_menu li:nth-child(2) a::before{ content: '\e8cc'; } /*장바구니*/
+.my_menu li:nth-child(3) a::before{ content: '\f1cc'; } /*주문내역*/
+.my_menu li:nth-child(4) a::before{ content: '\e88a'; } /*내 등급*/
+.my_menu li:nth-child(5) a::before{ content: '\f0e2'; } /*나의 질문*/
+.my_menu li:nth-child(6) a::before{ content: '\e87d'; } /*내 정보 변경*/
+.my_menu li:nth-child(7) a::before{ content: '\e000'; } /*회원탈퇴*/
+
+.my_menu {
+    display: block;
+    background-color: #000;
+    color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.my_menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.my_menu a {
+    display: block;
+    height: 25px;
+    padding: 8px;
+    cursor: pointer;
+    color: #fff;
+    text-decoration: none;
+}
+
+.my_menu a:hover {
+    color: #000;
+}
+.my_menu ul li:hover, .menu > label:hover {
+    background-color: #fff;
+    color: #000;
+    border-radius: 10px;
+}
+.my_menu div {
+    line-height: 1.5;
+    font-size: 1em;
+    font-family: 'Noto Sans KR';
+    padding: 0 0 0 50px; /* 아이콘과 텍스트 사이 여백 */
+}
+
+/*----------------------------------------------*/
+.my_main .table{
+	
+	margin:auto;
+}
+
+.my_main .bbs .bbs_table .img{
+	height:100px;
+}
+
+.my_main .bbs .bbs_table{
+
+	margin:auto;
+}
+
+  

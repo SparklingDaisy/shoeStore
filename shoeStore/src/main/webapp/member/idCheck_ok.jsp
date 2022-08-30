@@ -28,7 +28,7 @@ else{
 	%>
 	<script>
 	window.alert('<%=userId%>는 사용가능한 아이디입니다.');
-	opener.document.join.mid.value='<%=userId%>';
+	window.opener.document.getElementById("userId").value = '<%=userId%>';
 	window.self.close();
 	</script>
 	<%

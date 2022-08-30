@@ -14,12 +14,12 @@ public class Shoe_bbsDTO {
 	private int bref;
 	private int blev;
 	private int bsunbun;
-	
+	private String bb;
 	public Shoe_bbsDTO() {
 		super();
 	}
 	public Shoe_bbsDTO(int bidx, String bid, String bsubject, String bcontent, Date bwritedate, String bimg,
-			int breadnum, int bref, int blev, int bsunbun) {
+			int breadnum, int bref, int blev, int bsunbun, String bb) {
 		super();
 		this.bidx = bidx;
 		this.bid = bid;
@@ -31,6 +31,7 @@ public class Shoe_bbsDTO {
 		this.bref = bref;
 		this.blev = blev;
 		this.bsunbun = bsunbun;
+		this.bb = bb;
 	}
 	public int getBidx() {
 		return bidx;
@@ -92,5 +93,12 @@ public class Shoe_bbsDTO {
 	public void setBsunbun(int bsunbun) {
 		this.bsunbun = bsunbun;
 	}
+	public String getBb() {
+		return bb;
+	}
+	public void setBb(String bb) {
+		this.bb = bb;
+	}
+	
 	
 }
