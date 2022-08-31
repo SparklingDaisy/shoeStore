@@ -50,7 +50,49 @@ public class Shoe_itemDAO {
 			}
 		}
 	}
-	
+	/**고객용 상품 리스트 보기(default) 메소드*/
+	public ArrayList<Shoe_itemDTO> itemAllList(int listSize, int cp){
+		try {
+			conn = com.shoe.db.ShoeDB.getConn();
+			int start = (cp-1)*listSize+1;
+			int end = cp*listSize;
+			String sql = "select * from (select rownum as rnum, a.* "
+					     +"from (select * from shoe_item order by iwritedate desc) a) b " 
+					     +"where rnum >=? and rnum <=?";
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, start);
+			ps.setInt(2, end);
+			rs = ps.executeQuery();
+			ArrayList<Shoe_itemDTO> arr = new ArrayList<Shoe_itemDTO>();
+			while(rs.next()) {
+				int iidx = rs.getInt("iidx");
+				//String iid = rs.getString("iid");
+				String iname = rs.getString("iname");
+				int iprice = rs.getInt("iprice");
+				String iimg = rs.getString("iimg");
+				java.sql.Date iwritedate = rs.getDate("iwritedate");
+				Shoe_itemDTO dto = new Shoe_itemDTO();
+				dto.setIidx(iidx);
+				//dto.setIid(iid);
+				dto.setIname(iname);
+				dto.setIprice(iprice);
+				dto.setIimg(iimg);
+				dto.setIwritedate(iwritedate);
+				arr.add(dto);
+			}
+			return arr;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		} finally {
+			try {
+				if(rs!=null) rs.close();
+				if(ps!=null) ps.close();
+				if(conn!=null) conn.close();
+			} catch (Exception e2) {
+			}
+		}
+	}
 	
 	/**고객용 상품 리스트 보기(default) 메소드*/
 	public ArrayList<Shoe_itemDTO> itemList(String icategory, int listSize, int cp){
@@ -464,5 +506,6 @@ public class Shoe_itemDAO {
 			}
 		}
 	}
+	
 	
 }

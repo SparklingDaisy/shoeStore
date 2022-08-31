@@ -10,6 +10,7 @@ public class Shoe_itemDTO {
 	private int iprice;
 	private String iimg;
 	private String isize;
+	private int ioricnt;
 	private int icnt;
 	private String iview;
 	private Date iwritedate;
@@ -18,6 +19,22 @@ public class Shoe_itemDTO {
 	
 	public Shoe_itemDTO() {
 		super();
+	}
+	
+	public Shoe_itemDTO(int iidx, String iid, String iname, int iprice, String iimg, String isize, int ioricnt,
+			int icnt, String iview, Date iwritedate, String[] icategory) {
+		super();
+		this.iidx = iidx;
+		this.iid = iid;
+		this.iname = iname;
+		this.iprice = iprice;
+		this.iimg = iimg;
+		this.isize = isize;
+		this.ioricnt = ioricnt;
+		this.icnt = icnt;
+		this.iview = iview;
+		this.iwritedate = iwritedate;
+		this.icategory = icategory;
 	}
 
 
@@ -119,6 +136,18 @@ public class Shoe_itemDTO {
 	public void setIcategory(String[] icategory) {
 		this.icategory = icategory;
 	}
+
+
+	public int getIoricnt() {
+		return ioricnt;
+	}
+
+
+	public void setIoricnt(int ioricnt) {
+		this.ioricnt = ioricnt;
+	}
+
+	
 	
 	
 
