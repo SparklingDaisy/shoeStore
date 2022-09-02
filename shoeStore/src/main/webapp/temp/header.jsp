@@ -20,13 +20,13 @@ String sname=(String)session.getAttribute("sname");
 
 <header>
 <%if(sname==null||sname.equals("")){ %>
-	<div>
+	<div class="login">
 		<a href="javascript:openLogin();">로그인</a>|<a href="/shoeStore/member/join.jsp">회원가입
 	</div>
 	<%	
 	}else{
 		%>
-		<div><%=sname %>님 로그인중...|<a href="/shoeStore/member/logout_ok.jsp">로그아웃</a></div>
+		<div class="'login"><%=sname %>님 로그인중...|<a href="/shoeStore/member/logout_ok.jsp">로그아웃</a></div>
 		<%
 	}%>
 	<a href="/shoeStore/index.jsp"><h1>shoe issue</h1></a>

@@ -1,114 +1,133 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="java.util.*" %>
 <%@ page import="com.shoe.member.*" %>
+
+
+
+<jsp:useBean id="mdto" class="com.shoe.member.Shoe_memberDTO"></jsp:useBean>
 <jsp:useBean id="mdao" class="com.shoe.member.Shoe_memberDAO"></jsp:useBean>
 
-<%
-	String sid=(String)session.getAttribute("sid"); //세션은 오브젝트 이므로 다운캐스팅 필수
-	if(sid==null){
-		
-		%>
-		<script>
-			window.alert('로그인 후 이용가능합니다.');
-			window.location.href="/shoeStore";
-		</script>
-		<%
-		return; //조건을 쓸 때 밑에 밑에 있는 자바코드가 먼저 번역될 수 있으므로 우선 리턴으로 끊어줌
-	}
-%>
-
 <!DOCTYPE html>
-<html lang="en">
- <head>
-  <meta charset="UTF-8">
-  <title>Document</title>
-  <style>
-  table{
-	border-spacing:0px;
-	border-bottom:1px solid black;
-	margin:0px auto;
-  }
-  
-  div{
-  	text-align:center;
-  }
-  
-  .firTable{
-	border-top:3px solid black;
-	vertical-align:center;
-	width:670px;
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="../css/main.css">
+<link rel="stylesheet" type="text/css" href="../css/myPage.css">
+<link rel="stylesheet" type="text/css" href="../css/member.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-  }
 
-  .table{
+<script>
+function turnAround(){
+window.location.href="/shoeStore/member/myPage.jsp";
+}
+</script>
+</head>
+<body>
+<%@include file="memberSid.jsp" %>
+<%@include file="/header.jsp" %>
+<section class="my_all">
+	<div class="my_top"></div>
+		<section class="my_container">
+				<div class="my_menu">
+				<h1><br><a href="myPage.jsp">마이페이지</a></h1>
+					<div class="my_menu_in">
+							<ul>
+								<li><a href="/shoeStore/item/itemCart.jsp"><div>장바구니</div></a></li>
+								<li><a href="/shoeStore/item/itemCart.jsp"><div>구매내역</div></a></li>
+								<li><a href="/shoeStore/member/myTier.jsp"><div>나의 등급</div></a></li>
+								<li><a href="/shoeStore/member/myWrite.jsp"><div>나의 질문</div></a></li>
+								<li><a href="/shoeStore/member/memberInfo.jsp"><div>회원정보변경</div></a></li>
+								<li><a href="/shoeStore/member/adminPage.jsp"><div>관리자 페이지</div></a></li>
+							</ul>
+					</div>
+					<div>
+					</div>
+				</div>
+				<div class="my_main">
+					<div class="my_category">
+						<form method="post" action="memberInfo_ok.jsp">
+						      <div class="container">
+							    <div class="insert">
+							    
+							        <table class="info_table">
+							    <caption><h2>내 정보 변경</h2></caption>
+							    <tr>
+							        <td class="col1">ID</td>
+							        <td class="col2"><input type="text" name="mid" value="<%=dto.getMid() %>" readonly></td>
+							    </tr>
+							    <tr>
+							        <td class="col1">Password</td>
+							        <td class="col2">
+							            <input type="password"  name="mpwd">
+							        </td>
+							    </tr>
+							    <tr>
+							        <td class="col1">Password Confirm</td>
+							        <td class="col2">
+							            <input type="password" name="mpwd2">
+							        </td>
+							    </tr>
+							    <tr>
+							        <td class="col1">name</td>
+							        <td class="col2"><input type="text" value="<%=dto.getMname()%>" readonly></td>
+							    </tr>
+							   	<tr>
+							        <td class="col1">birthdate</td>
+							        <td class="col2"><input type="text" name="mbirthdate" value="<%=dto.getMbirthdate()%>"></td>
+							    </tr>
+							    <tr>
+							        <td class="col1">Phone number</td>
+							        <td class="col2"><input type="text" name="mtel" value="<%=dto.getMtel()%>"></td>
+							    </tr>
+							    <tr>
+							        <td class="col1">Address</td>
+							        <td class="col2"><input type="text" name="maddr" value="<%=dto.getMaddr()%>"></td>
+							    </tr>
+							    <tr>
+							        <td class="col1">E-mail Address</td>
+							        <td class="col2"><input type="text" name="memail" value="<%=dto.getMemail()%>"></td>
+							    </tr>
+							<!--  <tr>
+							        <td class="col1">E-mail</td>
+							        <td class="col2">
+							            <input type="text" name="mailid">
+							            <span class="a">@</span>
+							            <input type="text" name="email">
+							            <select name="mailslc">
+							                <option value="self" selected>직접입력</option>
+							                <option value="naver">naver.com</option>
+							                <option value="gm">gmail.com</option>
+							                <option value="da">daum.com</option>
+							                <option value="yah">yahoo.com</option>
+							            </select>
+							            <input class='but2' type="button" value="이메일 중복확인" onclick="">
+							        </td>
+							    </tr>-->
+							    <tr>
+							 
+							    </tr>
+							    </table>
+							    
+							  </div>
+							 
+							  <div class="create">    
+							        <input class="but1" type="submit" value="정보변경" onclick="">
+							        <input class="but2" type="button" value="취소" onclick="turnAround()">    
+							  </div>
+							  <div>
+						  		<a href="leave.jsp"><input class="but_leave" type="button" value="회원탈퇴" ></a>
+						  </div>
+					  </div>
+					  </form>
+				   </div>
+				</div>
+	
 
-	border-bottom:1px solid black;
-	background-color:#f0f0f0;
-	border-bottom:1px solid #cecece;
-	width:150px;
+	</section>
+</section>
 
-  }
-  .td{
-	border-bottom:1px solid #cecece;
-  }
-  .tdBlue{
-	color:blue;
-  }
-  
-  </style>
-  
- </head>
- <body>
- 
- 	<%
-  	Shoe_memberDTO dto=mdao.myInfo(sid);
-  	%>
- <table class="firTable">
-	<tr>
-	<td align="center"><h2>내 정보</h2></td>
-	</tr>
-  </table>
-  <form name="memberInfo" action="memberInfo_ok.jsp">
-  <table>
-	<tr>
-		<td class="table">아이디</td>
-		<td class="td"><input type="text" name="mid" value="<%=dto.getMid() %>" readonly>
-	</tr>
-	<tr>
-		<td class="table">비밀번호변경</td>
-		<td><input type="password" name="mpwd"></td>
-	</tr>
-	<tr>
-		<td class="table">비밀번호변경 확인</td>
-		<td><input type="password" name="mpwd2"></td>
-	</tr>
-	<tr>
-		<td class="table">이름</td>
-		<td><input type="text" name="mname" value="<%=dto.getMname()%>" readonly><br>
-	</tr>
-	<tr>
-		<td class="table">생년월일</td>
-		<td><input type="text" name="mbirthdate" value="<%=dto.getMbirthdate()%>"><br>
-	</tr>
-	<tr>
-		<td class="table">전화번호</td>
-		<td><input type="text" name="mtel" value="<%=dto.getMtel()%>"></td>
-	</tr>
-	<tr>
-		<td class="table">주소</td>
-		<td><input type="text" name="maddr" value="<%=dto.getMaddr()%>"></td>
-	</tr>
-	<tr>
-		<td class="table">이메일 주소</td>
-		<td><input type="text" name="memail" value="<%=dto.getMemail()%>"></td>
-	</tr>
-  </table>
-  <br>
-  <div>
-	  <input type="submit" value="내정보변경">
-	  <a href="/shoeStore.jsp"><input type="button" value="취소"></a>
-  </div>
-  </form>
- </body>
+</body>
+<%@include file="/footer.jsp" %>
 </html>

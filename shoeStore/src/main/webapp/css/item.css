@@ -1,0 +1,381 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: 'SUIT-Medium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Medium.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'HallymGothic-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2204@1.0/HallymGothic-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
+body{
+	margin: 0px auto;
+}
+
+/*itemList*/
+.itemListSect h2{
+	text-align: center;
+	font-family: 'HallymGothic-Regular';
+	font-size: 25px;
+}	
+.itemListSect table{
+	margin: 0px auto;
+	width: 1100px;
+	text-align: center;
+	border-spacing: 0px;
+}
+.itemListSect table th{
+	font-family: 'HallymGothic-Regular';
+	font-size: 18px;
+	padding-bottom: 15px;
+}
+.itemListSect table td{
+	font-family: 'SUIT-Medium';
+	font-size: 15px;
+}
+.itemListSect img{
+	width: 100px;
+	height: 80px;
+}
+.itemListSectbottomLine{
+	border-bottom: 1px solid lightgray;
+}
+#order{
+  font-family: 'SUIT-Medium';
+  font-size: 14px;
+}
+
+/*itemContent*/
+.itemContentSect{
+	margin-left: 20%;
+	margin-right: 20%;
+}
+.itemContentSect h2{
+	text-align: center;
+	font-family: 'HallymGothic-Regular';
+	font-size: 25px;
+}	
+.itemContentSect table{
+	margin: 0px auto;
+	width: 500px;
+	text-align: center;
+	border-spacing: 0px;
+}
+.itemContentSect table th{
+	font-family: 'HallymGothic-Regular';
+	font-size: 20px;
+	padding-bottom: 15px;
+}
+.itemContentSect table td{
+	font-family: 'SUIT-Medium';
+	font-size: 18px;
+}
+#itemContentpic{
+	float: left;
+}
+#itemContentpic img{
+	width: 500px;
+	height: auto;
+	margin-right: 50px;
+}	
+#itemContentInfo{
+	float: left;
+	font-family: 'SUIT-Medium';
+	font-size: 18px;
+}
+#itemContentBin{
+	clear: both;
+	float: left;
+	width: 100px;
+}
+#itemContentDetails{
+	float: left;
+	font-family: 'SUIT-Medium';
+	font-size: 18px;
+}
+#itemContentDetails h4{
+	font-family: 'SUIT-Medium';
+	font-size: 22px;
+}
+#itemContentClear{
+	clear: both;
+}
+#itemSize{
+	font-family: 'SUIT-Medium';
+  	font-size: 18px;
+}
+#itemCount{
+	font-family: 'SUIT-Medium';
+  	font-size: 18px;
+}
+.itemContentSect button{
+	background:black;
+	border:2px solid white;
+	border-radius:5px;
+	padding:10px 30px;
+	font-size:14px;
+	transition:.5s ease;
+	font-family: 'SUIT-Medium';
+	color: white;
+}
+.itemContentSect a{
+	text-decoration:none;
+	color:white;
+}
+.itemContentSect button:hover{
+	transition: .5s ease;
+	border:2px solid black;
+	background:transparent;
+	color:black;
+}
+
+/*itemCart*/
+.itemCartSect h2{
+	text-align: center;
+	font-family: 'HallymGothic-Regular';
+	font-size: 25px;
+}
+.itemCartSect table{
+	margin: 0px auto;
+	width: 80%;
+	text-align: center;
+	border-spacing: 0px;
+}
+.itemCartSect table th{
+	font-family: 'HallymGothic-Regular';
+	font-size: 18px;
+	padding-bottom: 15px;
+}
+.itemCartSect table td{
+	font-family: 'SUIT-Medium';
+	font-size: 16px;
+}
+.itemCartSect img{
+	width: 100px;
+	height: 80px;
+}
+#itemCartoffClick{
+	background:black;
+	border:2px solid white;
+	border-radius:5px;
+	padding:10px 30px;
+	font-size:14px;
+	transition:.5s ease;
+	font-family: 'SUIT-Medium';
+	color: white;
+}
+#itemCartoffClick a{
+	text-decoration:none;
+	color:white;
+}
+#itemCartoffClick:hover{
+	transition: .5s ease;
+	border:2px solid black;
+	background:transparent;
+	color:black;
+}
+.itemCartButton{
+	text-align: right;
+}
+.itemCartButton button{
+	background:black;
+	border:2px solid white;
+	border-radius:5px;
+	padding:10px 30px;
+	font-size:14px;
+	transition:.5s ease;
+	font-family: 'SUIT-Medium';
+	color: white;
+}
+.itemCartButton a{
+	text-decoration:none;
+	color:white;
+}
+.itemCartButton button:hover{
+	transition: .5s ease;
+	border:2px solid black;
+	background:transparent;
+	color:black;
+}
+#itemCartReadTxt{
+	text-align: right;
+}
+
+/*adminPage*/
+.adminPageSect h2{
+	text-align: center;
+	font-family: 'HallymGothic-Regular';
+	font-size: 25px;
+}
+.adminPageSect table{
+	margin: 0px auto;
+	width: 80%;
+	text-align: center;
+	border-spacing: 0px;
+}
+.adminPageSect table th{
+	font-family: 'HallymGothic-Regular';
+	font-size: 18px;
+	padding-bottom: 15px;
+}
+.adminPageSect table td{
+	font-family: 'SUIT-Medium';
+	font-size: 16px;
+}
+.adminPageSect img{
+	width: 100px;
+	height: 80px;
+}
+.adminPageSect div{
+	text-align: right;
+	padding-right: 13%;
+}
+#adminPageButton{
+	background:black;
+	border:2px solid white;
+	border-radius:5px;
+	padding:10px 15px;
+	font-size:14px;
+	transition:.5s ease;
+	font-family: 'SUIT-Medium';
+	color: white;
+}
+#adminPageButton a{
+	text-decoration:none;
+	color:white;
+}
+#adminPageButton:hover{
+	transition: .5s ease;
+	border:2px solid black;
+	background:transparent;
+	color:black;
+}
+#adminUploadButton{
+	height: 50px;
+	background: #F2055C;
+	border:2px solid white;
+	border-radius:5px;
+	padding:10px 30px;
+	font-size:16px;
+	transition:.5s ease;
+	font-family: 'SUIT-Medium';
+	color: white;
+}
+#adminUploadButton a{
+	text-decoration:none;
+	color:white;
+}
+#adminUploadButton:hover{
+	transition: .5s ease;
+	border:2px solid black;
+	background:transparent;
+	color:black;
+}
+
+/*itemUpload*/
+.itemUploadSect{
+	margin-left: 20px;
+}
+.itemUploadSect h2{
+	text-align: center;
+}
+.itemUploadSect article{
+	font-family: 'SUIT-Medium';
+	font-size: 18px;
+}
+.itemUploadSect label{
+	font-family: 'SUIT-Medium';
+	font-size: 22px;
+}
+#itemUploadIname{
+	width: 650px;
+}
+.itemUploadSectbutton{
+	text-align: center;
+}
+
+/*itemUpdate*/
+.itemUpdateSect h2{
+	text-align: center;
+	font-family: 'HallymGothic-Regular';
+	font-size: 25px;
+}
+.itemUpdateSect h4{
+	margin-left: 20px;
+	text-align: left;
+	font-family: 'HallymGothic-Regular';
+	font-size: 16px;
+}
+.itemUpdateSect table{
+	margin: 0px auto;
+	width: 1100px;
+	text-align: center;
+}
+.itemUpdateSect table th{
+	font-family: 'HallymGothic-Regular';
+	font-size: 18px;
+	background-color: black;
+	color: white;
+}
+.itemUpdateSect table td{
+	font-family: 'SUIT-Medium';
+	font-size: 16px;
+}
+.itemUpdateSect img{
+	width: 300px;
+	height: 230px;
+}
+#itemUpdateButton{
+	background:black;
+	border:2px solid white;
+	border-radius:5px;
+	padding:10px 30px;
+	font-size:14px;
+	transition:.5s ease;
+	font-family: 'SUIT-Medium';
+	color: white;
+}
+#itemUpdateButton a{
+	text-decoration:none;
+	color:white;
+}
+#itemUpdateButton:hover{
+	transition: .5s ease;
+	border:2px solid black;
+	background:transparent;
+	color:black;
+}
+
+/*item click*/
+a.itemClickLink:link{
+	color: #222;
+	text-decoration: none;
+}
+a.itemClickLink:visited{
+	color: #222;
+	text-decoration: none;
+}
+a.itemClickLink:hover{
+	color: #88898C;
+	text-decoration: underline;
+}
+
+/*etc click*/
+a.groupLink:link{
+	color: #222;
+	text-decoration:none;
+}
+a.groupLink:visited{
+	color: #222;
+	text-decoration:none;
+}
+a.groupLink:hover{
+	color: #88898C;
+	text-decoration:none;
+}

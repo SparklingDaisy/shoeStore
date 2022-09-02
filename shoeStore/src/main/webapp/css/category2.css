@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: 'SUIT-Medium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Medium.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+.cateGrouping{
+	font-family: 'SUIT-Medium';
+	font-size: 18px;
+	text-decoration: none;
+	color: black;
+	background-color: white;
+}
+.cateGrouping ul li{
+	display: inline;
+	list-style-type: none;
+	margin-right: 5%;
+}
+.cateGrouping input{
+	height: 20px;
+}
+.cateGrouping button{
+	background:black;
+	border:2px solid white;
+	border-radius:5px;
+	padding:5px 15px;
+	font-size:14px;
+	transition:.5s ease;
+	font-family: 'SUIT-Medium';
+	color: white;
+}
+.cateGrouping a{
+	text-decoration:none;
+	color:white;
+}
+.cateGrouping button:hover{
+	transition: .5s ease;
+	border:2px solid black;
+	background:transparent;
+	color:black;
+}

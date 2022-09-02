@@ -1,8 +1,11 @@
 package com.shoe.member;
 
 import java.sql.*;
+import java.sql.Date;
 import java.util.*;
+import com.shoe.member.*;
 import com.shoe.bbs.*;
+import com.shoe.item.Shoe_itemDTO;
 
 public class Shoe_memberDAO {
 	
@@ -141,6 +144,7 @@ public class Shoe_memberDAO {
 		}
 	}
 	
+	
 	/**회원정보검색 메서드*/
 	public Shoe_memberDTO myInfo(String sid){
 		
@@ -153,7 +157,7 @@ public class Shoe_memberDAO {
 			
 			Shoe_memberDTO dto=null;
 			while(rs.next()) {
-				int idx=rs.getInt("idx");
+				int midx=rs.getInt("midx");
 				String mid=rs.getString("mid");
 				String mpwd=rs.getString("mpwd");
 				String mname=rs.getString("mname");
@@ -167,8 +171,8 @@ public class Shoe_memberDAO {
 				int msum=rs.getInt("msum");
 				int mnu=rs.getInt("mnu");
 				java.sql.Date mjoindate=rs.getDate("mjoindate");
-				
-				dto=new Shoe_memberDTO(idx, mid, mpwd, mname, mbirthdate, mgender, mtel, memail, mad, maddr, mtier, msum, mnu, mjoindate);
+				dto=new Shoe_memberDTO(midx, mid, mpwd, mname, mbirthdate, mgender, mtel, memail, mad, maddr, mtier, msum, mnu, mjoindate);
+						
 			}
 			return dto;	
 			
@@ -264,7 +268,7 @@ public class Shoe_memberDAO {
 			ArrayList<Shoe_bbsDTO> arr=new ArrayList<Shoe_bbsDTO>();
 			while(rs.next()) {
 				
-				int idx=rs.getInt("idx");
+				int midx=rs.getInt("midx");
 				String writer=rs.getString("writer");
 				String pwd=rs.getString("pwd");
 				String subject=rs.getString("subject");
@@ -274,7 +278,7 @@ public class Shoe_memberDAO {
 				int ref=rs.getInt("ref");
 				int lev=rs.getInt("lev");
 				int sunbun=rs.getInt("sunbun");
-				Shoe_bbsDTO dto=new Shoe_bbsDTO(idx, pwd, subject, content, writedate, content, readnum, ref, lev, sunbun);
+				Shoe_bbsDTO dto=new Shoe_bbsDTO(midx, pwd, subject, content, writedate, subject, readnum, ref, lev, sunbun, content);
 						
 				arr.add(dto);
 			}
@@ -298,5 +302,122 @@ public class Shoe_memberDAO {
 		
 	}
 	
+	public ArrayList<Shoe_memberDTO> memberFind(int ls,int cp){
+		
+		try {
+			conn=com.shoe.db.ShoeDB.getConn();
+			
+			int start=(cp-1)*ls+1;
+			int end=cp*ls;
+
+			String sql="select * from "
+					+ "(select rownum as rnum,a.* from "
+					+ "(select * from shoe_member order by midx desc)a)b "
+					+ "where rnum>=? and rnum<=?";
+			// ?인파라미터는 밸류에만 적용가능
+			ps=conn.prepareStatement(sql);
+			ps.setInt(1, start);
+			ps.setInt(2, end);
+			rs=ps.executeQuery();
+			
+			ArrayList<Shoe_memberDTO> arr=new ArrayList<Shoe_memberDTO>();
+			while(rs.next()) {
+				int midx=rs.getInt("midx");
+				String mid=rs.getString("mid");
+				String mpwd=rs.getString("mpwd");
+				String mname=rs.getString("mname");
+				String mgender=rs.getString("mgender");
+				String mbirthdate=rs.getString("mbirthdate");
+				String mtel=rs.getString("mtel");
+				String memail=rs.getString("memail");
+				String mad=rs.getString("mad");
+				String maddr=rs.getString("maddr");
+				String mtier=rs.getString("mtier");
+				java.sql.Date mjoindate=rs.getDate("mjoindate");
+				
+				Shoe_memberDTO dto= new Shoe_memberDTO(midx, mid, mpwd, mname, mbirthdate, mgender, mtel, memail, mad, maddr, mtier, end, midx, mjoindate);
+				arr.add(dto);
+			}
+			return arr;
+		}catch(Exception e) {
+			e.printStackTrace();
+			return null;
+		}finally {
+			try {
+				if(rs!=null)rs.close();
+				if(ps!=null)ps.close(); 
+				if(conn!=null)conn.close();
+			}catch(Exception e2) {}
+		}
+	}
+	
+	public int getTotalCnt() {
+		
+		try {
+			conn=com.shoe.db.ShoeDB.getConn();
+			String sql="select count(*) from shoe_member";
+			ps=conn.prepareStatement(sql);
+			rs=ps.executeQuery();
+			rs.next();
+			int count=rs.getInt(1);
+			return count==0?1:count;
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+			return 1; //게시글 하나는 있다는 전제하에 1을 돌려줌
+			
+		}finally {
+			
+		try {
+			if(rs!=null)rs.close();
+			if(ps!=null)ps.close();
+			if(conn!=null)conn.close();
+			
+		}catch(Exception e2) {}
+		}
+	}
+	
+	/**검색*/
+	public ArrayList<Shoe_memberDTO> memberSearchList(String search, String select, int listSize, int cp){
+		try {
+			conn = com.shoe.db.ShoeDB.getConn();
+			int start = (cp-1)*listSize+1;
+			int end = cp*listSize;
+			String sql = "select * from (select rownum as rnum, a.* from (select * from shoe_member where "+select+" like ? order by mjoindate desc) a) b where rnum >=? and rnum <=?";
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, "%"+search+"%");
+			ps.setInt(2, start);
+			ps.setInt(3, end);
+			rs = ps.executeQuery();
+			ArrayList<Shoe_memberDTO> arr = new ArrayList<Shoe_memberDTO>();
+			while(rs.next()) {
+				int midx = rs.getInt("midx");
+				String mid = rs.getString("mid");
+				String mname = rs.getString("mname");
+				String mbirthdate = rs.getString("mbirthdate");
+				java.sql.Date mjoindate = rs.getDate("mjoindate");
+				Shoe_memberDTO dto = new Shoe_memberDTO();
+				dto.setMidx(midx);
+				dto.setMid(mid);
+				dto.setMname(mname);
+				dto.setMbirthdate(mbirthdate);
+				dto.setMjoindate(mjoindate);
+				arr.add(dto);
+			}
+			return arr;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+			
+		} finally {
+			try {
+				if(rs!=null) rs.close();
+				if(ps!=null) ps.close();
+				if(conn!=null) conn.close();
+			} catch (Exception e2) {
+			}
+		}
+	}
 
 }

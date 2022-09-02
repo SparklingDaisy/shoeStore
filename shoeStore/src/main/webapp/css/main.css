@@ -43,6 +43,7 @@
 .login{
 	text-align:right;
 	max-width:1100px;
+	justify-content:space-between;
 	margin:auto;
 	color:white;
 }
@@ -64,7 +65,9 @@
 	padding-right:20px;
 	color:white;
 }
-
+.main_all{
+	width:100%;
+}
 .main{
 	background: url(../img/main.png);
 	background-position:center;
@@ -153,10 +156,6 @@ footer .container .left h1{
 	margin:0;
 }
 
-footer .container .left p{
-	margin:0;
-	font-size:15px;
-}
 
 footer .container .left .sns{
 	margin-top:30px;

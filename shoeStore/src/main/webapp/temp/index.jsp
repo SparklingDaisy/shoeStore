@@ -10,7 +10,6 @@
 <body>
 <%@include file="/header.jsp" %>
  <section>
-<%@include file="/category.jsp" %>
  	 	<article id="adImg">
  		<img src="/shoeStore/img/shoes2.jpg" alt="ad image">
  	</article>

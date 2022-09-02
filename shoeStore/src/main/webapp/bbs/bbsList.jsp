@@ -9,6 +9,7 @@
 <%
 String sid=(String)session.getAttribute("sid");
 %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -52,7 +53,6 @@ if(cp%pageSize==0)userGroup--;
 <section class="bbs">
 	<article>
 		<div class="bbs_header"></div>
-		<div class="bbs_top"></div>
 		<div class="bbs_table">
 		<table>
 			<thead>
@@ -68,7 +68,7 @@ if(cp%pageSize==0)userGroup--;
 			</thead>
 			<tbody>
 			<%
-			ArrayList<Shoe_bbsDTO> arr=bdao.bbsList(listSize,cp);
+			ArrayList<Shoe_bbsDTO> arr=bdao.bbsList(listSize,cp,"");
 			if(arr==null||arr.size()==0){
 				%>
 				<tr>

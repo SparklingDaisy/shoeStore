@@ -3,7 +3,7 @@ import java.sql.*;
 
 public class Shoe_memberDTO {
 
-	private int idx;
+	private int midx;
 	private String mid;
 	private String mpwd;
 	private String mname;
@@ -22,11 +22,11 @@ public class Shoe_memberDTO {
 		super();
 	}
 
-	public Shoe_memberDTO(int idx, String mid, String mpwd, String mname, String mbirthdate, String mgender,
+	public Shoe_memberDTO(int midx, String mid, String mpwd, String mname, String mbirthdate, String mgender,
 			String mtel, String memail, String mad, String maddr, String mtier, int msum, int mnu,Date mjoindate) {
 		
 		super();
-		this.idx = idx;
+		this.midx = midx;
 		this.mid = mid;
 		this.mpwd = mpwd;
 		this.mname = mname;
@@ -41,13 +41,15 @@ public class Shoe_memberDTO {
 		this.mnu = mnu;
 		this.mjoindate = mjoindate;
 	}
+	
+	
 
-	public int getidx() {
-		return idx;
+	public int getMidx() {
+		return midx;
 	}
 
-	public void setidx(int idx) {
-		this.idx = idx;
+	public void setMidx(int midx) {
+		this.midx = midx;
 	}
 
 	public String getMid() {

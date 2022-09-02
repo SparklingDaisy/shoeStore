@@ -1,0 +1,229 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: 'SUIT-Medium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Medium.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.my_all{
+	background: url(../img/jage.png);
+	height:1000px;
+	max-height:1000px;
+	border-radius: 10px;
+}
+
+.my_top{
+	height:70px;
+}
+
+.my_container{
+	
+	border-radius: 20px;
+	display: flex;
+	height:1300px;
+	flex-direction: row;
+	max-width:1300px;
+	height:700px;
+	margin:auto;
+}
+
+.my_container my_menu{
+	flex:1;
+
+}
+
+.my_container .my_main{
+	text-align:center;
+	flex:1;
+}	
+
+.my_container my_right{
+	flex:1;
+}	
+
+
+.my_bot{
+	height:70px;
+}
+
+/*menu------------------------------------------------------------------*/
+.my_menu ::before{
+    font-family: 'Material Icons';
+    font-size: 1.5em;
+    float: left;
+    clear: left;
+}
+
+.my_menu .my_menu_in{
+	background:white;
+	border-radius: 10px;
+	height:300px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	
+}
+
+.my_menu li:nth-child(1) a::before{ content: '\e8cc'; } /*장바구니*/
+.my_menu li:nth-child(2) a::before{ content: '\f1cc'; } /*주문내역*/
+.my_menu li:nth-child(3) a::before{ content: '\e88a'; } /*내 등급*/
+.my_menu li:nth-child(4) a::before{ content: '\f0e2'; } /*나의 질문*/
+.my_menu li:nth-child(5) a::before{ content: '\e7fd'; } /*내 정보 변경*/
+.my_menu li:nth-child(6) a::before{ content: '\f02e'; } /*내 정보 변경*/
+
+.my_menu {
+	font-family: 'SUIT-Medium';
+    display: block;
+    background: #FDF5E6;
+    color:black;
+    border-radius: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    
+}
+.my_menu h1{
+	font-size:20px;
+	text-align:center;
+    
+}
+.my_menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.my_menu a {
+    display: block;
+    height: 25px;
+    padding: 8px;
+    cursor: pointer;
+    color: black;
+    text-decoration: none;
+}
+
+.my_menu a:hover {
+    color: #000;
+}
+.my_menu ul li:hover, .menu > label:hover {
+    background-color:#FDF5E6;
+    color: #000;
+    border-radius: 10px;
+}
+.my_menu div {
+    line-height: 0.15;
+    font-size: 1em;
+    font-family: 'Noto Sans KR';
+    padding: 0 0 0 30px; /* 아이콘과 텍스트 사이 여백 */
+}
+
+.my_menu_in{
+
+	position: relative;
+    top:10px;
+}
+
+/*----------------------------------------------*/
+.my_main{
+	font-family: 'SUIT-Medium';
+	transform: translate(0, 0%);
+	background: white;
+	border-radius: 10px;
+	width:500px;
+}
+
+.my_main .my_category {
+    position: relative;
+    top:50px;
+
+    
+}
+
+.my_main .my_category .myInfo_main{
+	display: flex;		
+	justify-content: center;
+	margin:50px;
+	flex-wrap: wrap;
+		
+	
+}
+
+.my_main .table {
+	
+	line-height: 0.5;
+
+}
+
+/*my info*/
+.myInfo1,
+.myInfo2{
+
+     padding: 10px;
+     box-sizing: border-box;
+
+ 	 display: flex;
+ 	 
+
+}
+
+.myInfo1 .myinfotable1,
+.myInfo2 .myinfotable2{
+	border:1px solid black;
+	width:400px;
+  
+}
+
+
+
+.my_main .table{
+	
+	margin:auto;
+}
+
+.my_main .bbs .bbs_table .img{
+	height:100px;
+}
+
+.my_main .bbs .bbs_table{
+
+	margin:auto;
+}
+
+/*button*/
+.main .title button{
+	background:#c0c0c0;
+	border:2px solid white;
+	border-radius:5px;
+	padding:10px 30px;
+	font-size:14px;
+}
+
+.main .title button:hover{
+	transition: .5s ease;
+	border:2px solid black;
+	background:transparent;
+	color:black;
+}
+
+.myInfo1 button,
+.myInfo2 button{
+	background:black;
+	border:2px solid white;
+	border-radius:5px;
+	padding:10px 30px;
+	font-size:14px;
+	color:white;		
+}
+
+.myInfo1 button:hover,
+.myInfo2 button:hover{
+	transition: .5s ease;
+	border:2px solid black;
+	background:transparent;
+	color:black;
+}
+
+table_first_line{
+	border-bottom:1px #708090 dashed;
+}
+  

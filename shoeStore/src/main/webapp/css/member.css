@@ -1,0 +1,108 @@
+@charset "UTF-8";
+
+ 	.insert h2{
+ 		text-align:center;
+ 	}
+ 	
+    div.create{
+	    width: 800px;
+	    text-align: center;
+	    padding: 30px;
+	    margin: auto;
+    }
+ 
+    .info_table{
+	    height: 300px;
+	    width: 500px;
+	    border-top: 3px solid black;
+	    margin-right: auto;
+	    margin-left: auto;
+    }
+ 
+    td{
+	    border-bottom: 1px dotted black;
+    }
+ 
+    caption{
+	    text-align: left;
+    }
+ 
+    .col1 {
+	    background-color: #e8e8e8;
+	    padding: 10px;
+	    text-align: right;
+	    font-weight: bold;
+	    font-size: 0.8em;
+    }
+ 
+    .col2 {
+	    text-align: left;
+	    padding: 5px;
+    }
+
+ 
+    .but1 {
+		background:black;
+		border:2px solid white;
+		border-radius:5px;
+		padding:10px 30px;
+		font-size:14px;
+		transition:.5s ease;
+		color:white;
+    }
+ 
+    .but2{
+	 	background:black;
+		border:2px solid white;
+		border-radius:5px;
+		padding:10px 30px;
+		font-size:14px;
+		transition:.5s ease;
+		color:white;
+    }
+    
+	.but_leave{
+	    border:0px solid white;
+    
+    }
+    
+
+ 	.but1:hover,
+    .but2:hover,
+    .but_leave:hover {
+	    background-color: #b9b9b9;
+	    color: black;
+	    border: 2px solid black;
+    }
+ 
+    .but3:hover {
+    background-color: black;
+    color: white;
+    border: 2px solid black;
+    }
+ 
+    .but4:hover {
+    background-color: black;
+    color: white;
+    border: 2px solid black;
+    }
+    
+    p{
+    font-size: 0.7em;
+    }
+ 
+    .g{
+    font-size: 0.7em;
+    }
+ 
+    .c{
+    font-size: 0.7em;
+    }
+ 
+    .a{
+    font-size: 0.7em;
+    }
+    
+    .num{
+    color: red;
+    }
